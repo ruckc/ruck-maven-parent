@@ -6,6 +6,10 @@
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
+    <prerequisites>
+        <maven>3.3.9</maven>
+    </prerequisites>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -25,6 +29,9 @@
                             <goals>
                                 <goal>check</goal>
                             </goals>
+                            <configuration>
+                                <configLocation>google_checks.xml</configLocation>
+                            </configuration>
                         </execution>
                     </executions>
                     <dependencies>
@@ -48,13 +55,39 @@
                             <configuration>
                                 <effort>Max</effort>
                                 <threshold>Low</threshold>
-                                <failOnError>true</failOnError>
+                                <failOnError>false</failOnError>
+                                <!--
                                 <includeFilterFile>${session.executionRootDirectory}/findbugs-security-include.xml</includeFilterFile>
                                 <excludeFilterFile>${session.executionRootDirectory}/findbugs-security-exclude.xml</excludeFilterFile>
+                                -->
                                 <plugins>
                                     <plugin>
                                         <groupId>com.h3xstream.findsecbugs</groupId>
                                         <artifactId>findsecbugs-plugin</artifactId>
+                                        <version>LATEST</version>
+                                    </plugin>
+                                    <plugin>
+                                        <groupId>com.mebigfatguy.fb-contrib</groupId>
+                                        <artifactId>fb-contrib</artifactId>
+                                        <version>LATEST</version>
+                                    </plugin>
+                                </plugins>
+                            </configuration>
+                        </execution>
+                        <execution>
+                            <goals>
+                                <goal>gui</goal>
+                            </goals>
+                            <configuration>
+                                <plugins>
+                                    <plugin>
+                                        <groupId>com.h3xstream.findsecbugs</groupId>
+                                        <artifactId>findsecbugs-plugin</artifactId>
+                                        <version>LATEST</version>
+                                    </plugin>
+                                    <plugin>
+                                        <groupId>com.mebigfatguy.fb-contrib</groupId>
+                                        <artifactId>fb-contrib</artifactId>
                                         <version>LATEST</version>
                                     </plugin>
                                 </plugins>
@@ -89,6 +122,16 @@
                             </goals>
                         </execution>
                     </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.6.1</version>
+                    <configuration>
+                        <compilerArgs>
+                            <arg>-Xlint:all</arg>
+                        </compilerArgs>
+                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -136,6 +179,11 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <version>2.10.4</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jxr-plugin</artifactId>
+                <version>2.5</version>
             </plugin>
         </plugins>
     </reporting>
