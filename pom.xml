@@ -16,6 +16,83 @@
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
+    <profiles>
+        <profile>
+            <id>codequality</id>
+
+            <build>
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-checkstyle-plugin</artifactId>
+
+                            <executions>
+                                <execution>
+                                    <id>checkstyle</id>
+                                    <goals>
+                                        <goal>check</goal>
+                                    </goals>
+                                    <configuration>
+                                        <configLocation>google_checks.xml</configLocation>
+                                    </configuration>
+                                </execution>
+                            </executions>
+                        </plugin>
+                        <plugin>
+                            <groupId>org.codehaus.mojo</groupId>
+                            <artifactId>findbugs-maven-plugin</artifactId>
+                            <version>3.0.4</version>
+                            <executions>
+                                <execution>
+                                    <id>findbugs</id>
+                                    <goals>
+                                        <goal>check</goal>
+                                    </goals>
+                                    <configuration>
+                                        <effort>Max</effort>
+                                        <threshold>Low</threshold>
+                                        <failOnError>false</failOnError>
+                                        <!--
+                                        <includeFilterFile>${session.executionRootDirectory}/findbugs-security-include.xml</includeFilterFile>
+                                        <excludeFilterFile>${session.executionRootDirectory}/findbugs-security-exclude.xml</excludeFilterFile>
+                                        -->
+                                        <plugins>
+                                            <plugin>
+                                                <groupId>com.h3xstream.findsecbugs</groupId>
+                                                <artifactId>findsecbugs-plugin</artifactId>
+                                                <version>LATEST</version>
+                                            </plugin>
+                                            <plugin>
+                                                <groupId>com.mebigfatguy.fb-contrib</groupId>
+                                                <artifactId>fb-contrib</artifactId>
+                                                <version>LATEST</version>
+                                            </plugin>
+                                        </plugins>
+                                    </configuration>
+                                </execution>
+                            </executions>
+                        </plugin>
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-pmd-plugin</artifactId>
+                            <version>3.7</version>
+                            <executions>
+                                <execution>
+                                    <phase>package</phase>
+                                    <goals>
+                                        <goal>cpd-check</goal>
+                                        <goal>check</goal>
+                                    </goals>
+                                </execution>
+                            </executions>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+            </build>
+        </profile>
+    </profiles>
+
     <build>
         <pluginManagement>
             <plugins>
@@ -27,7 +104,7 @@
                         <execution>
                             <id>checkstyle</id>
                             <goals>
-                                <goal>check</goal>
+                                <goal>checkstyle</goal>
                             </goals>
                             <configuration>
                                 <configLocation>google_checks.xml</configLocation>
@@ -50,7 +127,7 @@
                         <execution>
                             <id>findbugs</id>
                             <goals>
-                                <goal>check</goal>
+                                <goal>findbugs</goal>
                             </goals>
                             <configuration>
                                 <effort>Max</effort>
@@ -141,8 +218,8 @@
                         <execution>
                             <phase>package</phase>
                             <goals>
-                                <goal>cpd-check</goal>
-                                <goal>check</goal>
+                                <goal>cpd</goal>
+                                <goal>pmd</goal>
                             </goals>
                         </execution>
                     </executions>
