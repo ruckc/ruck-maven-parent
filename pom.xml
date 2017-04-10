@@ -14,8 +14,16 @@
         <connection>scm:git:https://github.com/ruckc/ruck-maven-parent.git</connection>
         <developerConnection>scm:git:https://github.com/ruckc/ruck-maven-parent.git</developerConnection>
         <url>scm:git:https://github.com/ruckc/ruck-maven-parent</url>
-      <tag>HEAD</tag>
-  </scm>
+        <tag>HEAD</tag>
+    </scm>
+    
+    <distributionManagement>
+        <repository>
+            <id>bintray-ruckc-maven</id>
+            <name>ruckc-maven</name>
+            <url>https://api.bintray.com/maven/ruckc/maven/ruck-maven-parent/;publish=1</url>
+        </repository>
+    </distributionManagement>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
