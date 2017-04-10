@@ -11,9 +11,9 @@
     </prerequisites>
     
     <scm>
-        <connection>scm:git:https://github.com/ruckc/ruck-maven-parent.git</connection>
-        <developerConnection>scm:git:https://github.com/ruckc/ruck-maven-parent.git</developerConnection>
-        <url>scm:git:https://github.com/ruckc/ruck-maven-parent</url>
+        <connection>scm:git:ssh://git@github.com/ruckc/ruck-maven-parent.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/ruckc/ruck-maven-parent.git</developerConnection>
+        <url>scm:git:ssh://git@github.com/ruckc/ruck-maven-parent.git</url>
       <tag>ruck-maven-parent-1.0.0</tag>
   </scm>
 
