@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.ruck</groupId>
     <artifactId>ruck-maven-parent</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <prerequisites>
@@ -11,10 +11,10 @@
     </prerequisites>
     
     <scm>
-        <connection>scm:git:ssh://git@github.com/ruckc/ruck-maven-parent.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com/ruckc/ruck-maven-parent.git</developerConnection>
-        <url>scm:git:ssh://git@github.com/ruckc/ruck-maven-parent.git</url>
-      <tag>ruck-maven-parent-1.0.0</tag>
+        <connection>scm:git:https://github.com/ruckc/ruck-maven-parent.git</connection>
+        <developerConnection>scm:git:https://github.com/ruckc/ruck-maven-parent.git</developerConnection>
+        <url>scm:git:https://github.com/ruckc/ruck-maven-parent</url>
+      <tag>HEAD</tag>
   </scm>
 
     <properties>
