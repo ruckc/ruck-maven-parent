@@ -7,15 +7,14 @@
     <packaging>pom</packaging>
 
     <prerequisites>
-        <maven>3.3.9</maven>
+        <maven>3.5.0</maven>
     </prerequisites>
     
     <scm>
         <connection>scm:git:https://github.com/ruckc/ruck-maven-parent.git</connection>
         <developerConnection>scm:git:https://github.com/ruckc/ruck-maven-parent.git</developerConnection>
         <url>scm:git:https://github.com/ruckc/ruck-maven-parent</url>
-      <tag>HEAD</tag>
-  </scm>
+    </scm>
     
     <distributionManagement>
         <repository>
