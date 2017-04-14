@@ -14,8 +14,8 @@
         <connection>scm:git:https://github.com/ruckc/ruck-maven-parent.git</connection>
         <developerConnection>scm:git:https://github.com/ruckc/ruck-maven-parent.git</developerConnection>
         <url>scm:git:https://github.com/ruckc/ruck-maven-parent</url>
-      <tag>HEAD</tag>
-  </scm>
+        <tag>HEAD</tag>
+    </scm>
     
     <distributionManagement>
         <repository>
@@ -193,8 +193,7 @@
                     <version>3.0.1</version>
                     <executions>
                         <execution>
-                            <id>sources</id>
-
+                            <id>attach-sources</id>
                             <goals>
                                 <goal>jar</goal>
                             </goals>
